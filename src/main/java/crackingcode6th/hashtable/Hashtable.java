@@ -11,8 +11,6 @@ public class Hashtable<K, V>
 
     int size = 0;
 
-    final List<HashNode<K, V>> chaining = new ArrayList<>();
-
     private List<HashNode<K, V>> array[];
 
     public Hashtable(int size)
