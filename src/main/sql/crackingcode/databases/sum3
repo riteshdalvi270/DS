@@ -1,0 +1,4 @@
+Close all request from apartments in  building 11.
+
+update Request set Request.status = 'Close'
+where Request.apartmentId in (select Apartments.apartmentId from Apartments inner join Buildings where Buildings.buildingId = 11);

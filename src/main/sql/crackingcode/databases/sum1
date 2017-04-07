@@ -1,0 +1,10 @@
+List of all tenants who are renting more than one apartment:
+
+select tenantName
+from (
+select TA.tenantId
+from TenantApartments TA inner join Apartments Apt
+On TA.apartmentId = Apt.apartmentId
+group by tenantId having count(*)>1) T inner join Tenants
+where T.tenantId = Tenants.tenantId;
+

@@ -1,0 +1,11 @@
+List of all buildings and number of open request
+
+select Buildings.buildingName,NumberOfOpenRequest
+from (
+select Apartments.apartmentId, count(*) AS NumberOfOpenRequest
+from Apartments inner join Request
+ON Apartments.apartmentId = Request.apartmentId
+Group by Apartments.apartmentId
+having Request.status = 'Open'
+) T  right outer join Buildings
+ON T.apartmentId = Buildings.apartmentId;
