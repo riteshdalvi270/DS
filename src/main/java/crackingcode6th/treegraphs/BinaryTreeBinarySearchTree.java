@@ -7,6 +7,7 @@ import objects.Node;
  * Check whether binary tree is binary search tree.
  * @author Ritesh Dalvi (rd026600).
  */
+// No right. Looked in the book later.
 public class BinaryTreeBinarySearchTree
 {
     public static void main(String args[])
@@ -17,36 +18,29 @@ public class BinaryTreeBinarySearchTree
 
         final Node<Integer> binarySearchTree = binaryTreeAssistant.createBinarySearchTree(input, 0, input.length - 1);
 
-        System.out.println(isBinaryTreeBinarySearchTree(binarySearchTree));
+        System.out.println(isBinaryTreeBinarySearchTree(binarySearchTree, Integer.MAX_VALUE, Integer.MIN_VALUE));
     }
 
-    public static boolean isBinaryTreeBinarySearchTree(final Node<Integer> binaryTree)
-    {
-        if (binaryTree == null)
-        {
+    public static boolean isBinaryTreeBinarySearchTree(final Node<Integer> root, int min, int max) {
+        if (root == null) {
             return true;
         }
 
-        determineBinaryTeeBinarySearchTree(binaryTree.getLeftChild())
-                && determineBinaryTeeBinarySearchTree(binaryTree.getRightChild());
 
-        if (value)
-        {
-            return isBinaryTreeBinarySearchTree(binaryTree.getLeftChild()) && isBinaryTreeBinarySearchTree(binaryTree.getRightChild());
+        return isLeft(root,min, max);
+    }
+
+    public static boolean isLeft(final Node<Integer> node, int min, int max) {
+
+        if(node == null) {
+            return false;
         }
+
+        Node<Integer> left = node.getLeftChild();
+        Node<Integer> right = node.getRightChild();
+
 
         return false;
     }
 
-    public static Node determineBinaryTeeBinarySearchTree(final Node<Integer> node)
-    {
-        if (node == null)
-        {
-            return null;
-        }
-
-        int value = node.getValue();
-        determineBinaryTeeBinarySearchTree(node.getLeftChild());
-        determineBinaryTeeBinarySearchTree(node.getRightChild());
-    }
 }
