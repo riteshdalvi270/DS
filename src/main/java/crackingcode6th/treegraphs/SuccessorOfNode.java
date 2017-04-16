@@ -24,7 +24,15 @@ public class SuccessorOfNode {
        if(node.getRight()!=null) {
           x  = treeMinimun(node.getRight());
        }
-        
+
+       Node y = x.getParent();
+
+       while(y!=null && x == y.getRight()) {
+           x = y;
+           y = y.getParent();
+       }
+
+       return y;
     }
 
     public static Node treeMinimun(Node left) {
