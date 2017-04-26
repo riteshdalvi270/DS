@@ -1,4 +1,4 @@
-package crackingcode6th.stringbuilder;
+package stringbuilder;
 
 /**
  * Created by ritesh on 3/18/17.

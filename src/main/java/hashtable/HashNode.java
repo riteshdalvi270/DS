@@ -1,4 +1,4 @@
-package crackingcode6th.hashtable;
+package hashtable;
 
 /**
  * Created by ritesh on 3/15/17.

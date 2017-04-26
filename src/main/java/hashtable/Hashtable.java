@@ -1,9 +1,10 @@
-package crackingcode6th.hashtable;
+package hashtable;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Implement Hashtable.
  * Created by ritesh on 3/15/17.
  */
 public class Hashtable<K, V>
@@ -52,8 +53,8 @@ public class Hashtable<K, V>
         {
             hashNodes = new ArrayList<>();
         }
-        hashNodes.add(hashNode);
 
+        hashNodes.add(hashNode);
         array[index] = hashNodes;
     }
 

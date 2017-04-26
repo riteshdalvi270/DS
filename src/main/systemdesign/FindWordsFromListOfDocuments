@@ -1,0 +1,5 @@
+Given a list of millions of documents, how would you find all the documents that contain a list of words? The words can appear in any order, bu they must be
+complete words. eg book is not equal to book keeper.
+
+Step1: Scope your system
+a. Will the user provide me with the list of words

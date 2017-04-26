@@ -1,4 +1,4 @@
-package crackingcode6th.hashtable;
+package hashtable;
 
 /**
  * @author Ritesh Dalvi (rd026600).
