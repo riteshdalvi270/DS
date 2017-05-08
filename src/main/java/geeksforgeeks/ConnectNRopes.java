@@ -11,8 +11,15 @@ public class ConnectNRopes {
 
         final Heap minHeap = createAndBuildMinHeap(input, input.length);
         int cost = findMinCost(minHeap);
-
         System.out.println(cost);
+
+
+        int[] input1 = new int[]{8,10,12,15};
+
+        final Heap minHeap1 = createAndBuildMinHeap(input1, input1.length);
+        int cost1 = findMinCost(minHeap1);
+
+        System.out.println(cost1);
     }
 
     static class Heap {
@@ -48,23 +55,23 @@ public class ConnectNRopes {
     // 3. insert it again in the heap.
     public static int findMinCost(final Heap minHeap) {
 
-        return findCost(minHeap);
+        return findCost(minHeap,0);
     }
 
     private static void buildMinHeapify(final Heap minHeap) {
 
         int n= minHeap.capacity - 1;
 
-        for(int i = (n-1)/2; i>=0; i--) {
+        for(int i = n/2; i>=0; i--) {
             minHeapify(minHeap,i);
         }
 
     }
 
-    private static int findCost(final Heap minHeap) {
+    private static int findCost(final Heap minHeap, int minCost) {
 
         if(minHeap.capacity == 1) {
-            return minHeap.input[0];
+            return minCost;
         }
 
         int min1 = extractMin(minHeap);
@@ -74,7 +81,9 @@ public class ConnectNRopes {
 
         insertIntoMinHeap(minHeap,sum);
 
-        return findCost(minHeap);
+        int min = sum + minCost;
+
+        return findCost(minHeap,min);
     }
 
     private static void insertIntoMinHeap(final Heap minHeap, int key) {
@@ -90,7 +99,7 @@ public class ConnectNRopes {
 
         minHeap.input[i] = key;
 
-        while(i> 1 && key < minHeap.input[i/2]) {
+        while(i> 1 && minHeap.input[i] < minHeap.input[i/2]) {
             exchange(minHeap.input,i,i/2);
             i = i/2;
         }
