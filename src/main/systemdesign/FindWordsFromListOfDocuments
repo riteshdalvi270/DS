@@ -1,5 +1,36 @@
 Given a list of millions of documents, how would you find all the documents that contain a list of words? The words can appear in any order, bu they must be
 complete words. eg book is not equal to book keeper.
 
+Approach 1
+
 Step1: Scope your system
-a. Will the user provide me with the list of words
+a. Will the user provide me with the list of words? will this be auto generated? The point is how will be my system heavily used?
+
+Assume user provides the list of words and the documents are sorted with words (terrible process-this needs rework).
+
+Step2:
+System:
+ -> Application layer : User
+ -> Server : (partitioned) containing millions of documents.
+        -> partitioned using : dictionary based partitioning
+
+If its heavy read, do we need cache?
+
+Step 3:
+ examples: {book, bike} -> Dictionary based solution -> point to server1 (node 1) -> contains documents from 1 to 1000
+
+           {dance, duke} -> Dictionary based solution ->point to server1 (node 1)
+
+           {zap, zip} ->  Dictionary based solution -> point to server5 (node 6).
+
+ This system wont scale well, because it assumes the documents to be sorted with words.
+
+
+Approach 2:
+document A contains words bike, dance, zap.
+
+document B contains words apple, banana, grapes.
+
+
+how will you efficiently retrieve the document?
+

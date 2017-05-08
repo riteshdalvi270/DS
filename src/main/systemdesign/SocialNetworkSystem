@@ -1,0 +1,14 @@
+Design a system for social network and algorithm for shortest path.
+
+eg Susan -> Lina -> Sabrina
+
+1. There are millions of users, our system should be smart enough to reduce the communication (we should smartly divide the nodes having users, but how?)
+ -> The users tend to communicate with people in their demographics mostly.
+ -> divide the users depending on the demographics. (tend to have less coostly processing).
+
+2. Have recent communication for the user (store it in a cache?, LRU cache?)
+ -> Users tend to chat with same people most of the times
+
+3.  Build a system based on vertical partitioning (the recent profiles or recent contacts together).
+
+4.
