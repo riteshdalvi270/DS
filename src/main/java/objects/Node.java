@@ -10,6 +10,7 @@ public class Node<T> {
     T value;
     Node<T> leftChild;
     Node<T> rightChild;
+    boolean isVisited;
 
     public T getValue() {
         return value;
@@ -33,6 +34,10 @@ public class Node<T> {
 
     public void setRightChild(Node<T> rightChild) {
         this.rightChild = rightChild;
+    }
+
+    public void setVisited(final boolean visited) {
+        isVisited = visited;
     }
 
     public Node(final T value, Node<T> leftChild, Node<T> rightChild) {
